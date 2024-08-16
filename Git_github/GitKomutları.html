@@ -1,0 +1,56 @@
+KOMUTLAR:
+    -Terminal komutları
+        pwd : bulunduğumuz konum
+        ls : bulunduğumuz klasördeki dosyaları listeler
+        cd : istediğimiz konuma gitmeyi sağlar
+        clear : terminali temizler
+        cd.. : bir alt klasöre gitmeyi sağlar
+        mkdir : klasör oluşturur
+        touch : dosya oluşturur
+
+    -Git Bash içinde:(içinde bulunduğumuz çalışma klasörü için)
+        git config --global user.name "______"
+        git config --global user.email "______"
+        git status : fatal yazıyorsa git takibi yok
+        git init : git başlatılır. git klasöre dahil edilir(gizli). (master ana branch)
+        git add ___ : dosyayı ekler(index e ekler)
+        git add. : bütün dosyaları ekler
+        git commit -m"____" : yayınlar
+        git log : oluşturulan commitleri gösterir
+        
+        "touch .gitignore" ile dosya oluşturulur. Bunun içine gizli çalışılmak istenen dosya isimleri yazılır ve kaydedilir. Böylece sadece bu dosyalarda çalışan kişi görmüş olur.
+
+    -Branch ve Merge
+        git branch : branchleri listeler
+        git branch _____ : branch oluşturur
+        git switch _____ : istediğimiz branch e geçmemizi sağlar
+        
+        ---NOT: Master da yapılan her şey (gizli dosyalar da dahil) branch e ayrıldığında yeni branch e gelir.
+
+        git merge ______ : master ve istenen branch birleştirilir
+        
+        ---NOT: merge işleminde ana branch direkt geçtiği için bu işleme "fast forward" denir
+
+        git restore ______ : istediğimiz dosyada yapılan değişiklikleri bir önceki adıma dömdürür, son committen sonraki değişiklikleri siler
+
+        git stash : yeni branch oluşturulduğunda ve yapılan değişikliklerin gizlenmesi, herkesin görmesi istenmediğinde kullanılır
+        git stash pop : git stash ile saklanan kodlar geri gelir 
+        git stash list : birden fazla stash yapılabilir, hepsini listeler
+
+        ---eski commitlere gitmek için
+        1) git checkout ___(git log ile bak, istediğin commitin kodunu yaz)___ : git switch e benzer, kodu verilen commite gitmeyi sağlar
+        NOT : yeni branch oluştururken "git switch", eski commitlere gitmek için "git checkout" kullanılır
+
+        2)git reset ___(git log ile bak, istediğin commitin kodunu yaz)___ : seçilen committen sonraki commitler silinir ama değişiklikler kalır
+        
+        3)git reset --hard ___(git log ile bak, istediğin commitin kodunu yaz)___ : seçilen committen sonraki commitler ve değişiklikler silinir 
+        
+        git revert ___(git log ile bak, istediğin commitin kodunu yaz)___ : son yapılan işlemi geri alır ama commit silinmez, yeni commit oluşturur
+        ---
+
+        git diff : commitlerle ilgili infolar verir
+
+    -Github
+        git remote add origin __(githubda oluşturulan repo linki)___ : yerel (local) Git deposunu GitHub'da oluşturduğumuz uzaktaki (remote) bir depoya bağlamak için kullanılır.
+
+        git push -u origin __(branch ismi)__ : Bağlantıyı ekledikten sonra, yerel depodaki değişiklikleri GitHub'daki uzaktaki depoya göndermek için kullanılır
